@@ -21,10 +21,6 @@ func main() {
 	sess.AddHandler(func(s *discordgo.Session, m *discordgo.MessageCreate) {
 		if m.Author.ID == s.State.User.ID { return }
 		
-		if strings.HasPrefix(m.Content, "!ping") {
-			s.ChannelMessageSend(m.ChannelID, "Pong!")
-		}
-
 		if strings.HasPrefix(m.Content, "!timer ") {
 			// finds and sets duration. starts timer setting process
 			parts := strings.Split(m.Content, " ")
